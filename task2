@@ -1,0 +1,58 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+// Function to convert Celsius to Fahrenheit and Kelvin
+void convertFromCelsius(double tempC) {
+    double tempF = (tempC * 9/5) + 32; // Celsius to Fahrenheit
+    double tempK = tempC + 273.15;      // Celsius to Kelvin
+    
+    cout << fixed << setprecision(2);
+    cout << "Temperature in Fahrenheit: " << tempF << " °F" << endl;
+    cout << "Temperature in Kelvin: " << tempK << " K" << endl;
+}
+
+// Function to convert Fahrenheit to Celsius and Kelvin
+void convertFromFahrenheit(double tempF) {
+    double tempC = (tempF - 32) * 5/9;  // Fahrenheit to Celsius
+    double tempK = (tempF - 32) * 5/9 + 273.15; // Fahrenheit to Kelvin
+    
+    cout << fixed << setprecision(2);
+    cout << "Temperature in Celsius: " << tempC << " °C" << endl;
+    cout << "Temperature in Kelvin: " << tempK << " K" << endl;
+}
+
+// Function to convert Kelvin to Celsius and Fahrenheit
+void convertFromKelvin(double tempK) {
+    double tempC = tempK - 273.15;      // Kelvin to Celsius
+    double tempF = (tempK - 273.15) * 9/5 + 32; // Kelvin to Fahrenheit
+    
+    cout << fixed << setprecision(2);
+    cout << "Temperature in Celsius: " << tempC << " °C" << endl;
+    cout << "Temperature in Fahrenheit: " << tempF << " °F" << endl;
+}
+
+int main() {
+    double temperature;
+    int scale;
+    
+    cout << "Temperature Conversion Program" << endl;
+    cout << "Enter temperature scale (1 = Celsius, 2 = Fahrenheit, 3 = Kelvin): ";
+    cin >> scale;
+    
+    cout << "Enter temperature: ";
+    cin >> temperature;
+    
+    if (scale == 1) {
+        convertFromCelsius(temperature);
+    } else if (scale == 2) {
+        convertFromFahrenheit(temperature);
+    } else if (scale == 3) {
+        convertFromKelvin(temperature);
+    } else {
+        cout << "Invalid scale selection!" << endl;
+    }
+    
+    return 0;
+}
